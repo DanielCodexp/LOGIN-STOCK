@@ -1,0 +1,53 @@
+<div class="container">
+
+  <!-- devices -->
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 my-1">
+      <select [ngModel]="null" (ngModelChange)="action.playDevice($event)" class="form-select form-select-sm">
+        <option [value]="null" selected>Selecciona la camara</option>
+        <option *ngFor="let c of action.devices.value; let i = index" [ngValue]="c.deviceId" [selected]="i == 0">{{c.label}}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ngx-scanner-qrcode -->
+  <ngx-scanner-qrcode #action="scanner" [config]="config" (event)="onEvent($event)"></ngx-scanner-qrcode>
+
+  <!-- data  -->
+  <!-- <p class="data">{{ (action.data | async | json) }}</p> -->
+
+  <!-- loading -->
+  <p *ngIf="action.isLoading">⌛ Loading...</p>
+  <!-- start/stop -->
+  <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading">
+    <img *ngIf="!action.isStart" (click)="handle(action, 'start')" src="https://img.icons8.com/ios/50/000000/no-camera--v2.png" width="30px"/>
+    <img *ngIf="action.isStart" (click)="handle(action, 'stop')" src="https://img.icons8.com/ios/50/000000/no-camera--v1.png" width="30px"/>
+  </button>
+
+  <!-- play/pause -->
+  <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="!action.isStart">
+    <img *ngIf="action.isPause" (click)="handle(action, 'play')" src="https://img.icons8.com/ios/512/play-button-circled--v1.png" width="30px"/>
+    <img *ngIf="!action.isPause" (click)="handle(action, 'pause')" src="https://img.icons8.com/ios/512/circled-pause.png" width="30px"/>
+  </button>
+  <!-- download -->
+  <button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="!action.isStart">
+    <img (click)="onDowload(action)" src="https://img.icons8.com/ios/512/picture.png" width="30px"/>
+  </button>
+  <br>
+
+  <!-- For select files -->
+  <input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'" class="btn btn-success my-2"/>
+  <br>
+  <br>
+  <div  *ngFor="let item of res">
+    <button type="button" class="btn btn-success" (click)="qrSelect(item.value)">{{item.value}}</button>
+  </div>
+
+  <div *ngFor="let item of qrCodeResult">
+    <ngx-scanner-qrcode #actionFile="scanner" [src]="item.url" [config]="config" (event)="onEvent($event)"></ngx-scanner-qrcode>
+    <!-- <p class="data">{{ actionFile.data | async }}</p> -->
+  </div>
+
+
+</div>
+

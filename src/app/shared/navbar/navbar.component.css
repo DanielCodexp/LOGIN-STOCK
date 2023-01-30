@@ -1,0 +1,15 @@
+.nav{
+  background-color: #1e2326;
+}
+.author{
+color: aquamarine;
+}
+.text{
+  color: azure;
+}
+.text:hover{
+  color: aqua;
+}
+.fz{
+  font-size: 31px;
+}

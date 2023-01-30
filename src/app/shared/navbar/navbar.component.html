@@ -1,0 +1,40 @@
+ <div *ngIf="isMobile == false" class="nav">
+  <div class="container">
+    <div class="d-flex mb-3">
+    <div class="me-auto p-2 author cursor" routerLink="">ALMACEN REFACCIONES</div>
+    <div class="p-2 text cursor" routerLink="productos">PRODUCTOS</div>
+    <div class="p-2 text cursor" routerLink="reportes">REPORTES</div>
+  </div>
+  </div>
+</div>
+
+<div *ngIf="isMobile" class="nav">
+  <div class="container">
+    <div class="d-flex mb-3">
+      <div  class="me-auto p-2 author" routerLink="">
+        ALMACEN REFACCIONES
+
+      </div>
+     <div>
+       <span  type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+
+          <span class="material-symbols-outlined fz text" style="    margin-top: 4px;" >
+            menu
+            </span>
+
+        </span>
+     </div>
+    </div>
+    <div class="collapse" id="collapseExample">
+
+       <div class="d-flex mb-3">
+        <div  class="me-auto p-2 author">
+        <p class="text" routerLink="productos">PRODUCTOS</p>
+        <p class="text" routerLink="reportes">REPORTES</p>
+
+        </div>
+       </div>
+  </div>
+
+</div>
+
