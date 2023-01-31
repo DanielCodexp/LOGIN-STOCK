@@ -20,7 +20,7 @@ login(authData: User): Observable<UserResponse | void>{
       this.isLoged= true;
       console.log('Estas logeado?', this.isLoged)
       console.log('Res->',res);
-      //savenToken()
+      this.saveToken(res.token);
     }),
     catchError((err) => this.handlerError(err))
   );
@@ -29,7 +29,12 @@ login(authData: User): Observable<UserResponse | void>{
 logout(): void {}
 
 private readToken(): void {}
-private saveToken(): void {}
+
+private saveToken(token:string
+){
+localStorage.setItem('token',token)
+}
+
 private handlerError(err): Observable<never>{
   let errorMessage = 'An error ocurred retrienving data';
   if(err){
