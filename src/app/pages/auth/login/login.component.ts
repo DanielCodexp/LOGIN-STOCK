@@ -34,7 +34,7 @@ constructor(
      this.authSvc.login(this.form.value).subscribe((res) => {
       console.log('h')
 
-        this.router.navigate(['home']);
+        this.router.navigate(['qr']);
       }
  );
 

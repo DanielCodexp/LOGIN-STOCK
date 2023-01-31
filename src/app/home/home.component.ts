@@ -8,13 +8,15 @@ import {
 } from 'ngx-scanner-qrcode';
 import { Equipo } from '../services/products.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { clippingParents } from '@popperjs/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit  {
-
+  public log;
   public config: ScannerQRCodeConfig = {
     medias: {
       audio: false,
@@ -36,11 +38,11 @@ public qrCodeResult: ScannerQRCodeSelectedFiles[] = [];
   constructor(
     private qrcode: NgxScannerQrcodeService,
     private ProductsService: ProductsService,
-    private router:Router
+    private router:Router,
+    private authSvc: AuthService,
     ) { }
 
     ngOnInit(): void {
-
     }
 
   public onEvent(e: ScannerQRCodeResult[]): void {

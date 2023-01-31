@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,13 +9,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(  private authSvc: AuthService){
+  constructor(  private authSvc: AuthService,
+    private router: Router,
+    ){
 
   }
   isLoged = this.authSvc.isLoged;
   ngOnInit(): void {
 
     console.log(this.isLoged)
+  }
+
+  public qr(){
+    this.router.navigate(['qr']);
   }
 
 }
