@@ -26,7 +26,10 @@ login(authData: User): Observable<UserResponse | void>{
   );
 }
 
-logout(): void {}
+logout(): void {
+  localStorage.removeItem('token')
+  this.isLoged = false;
+}
 
 private readToken(): void {}
 
