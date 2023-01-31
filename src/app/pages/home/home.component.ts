@@ -7,9 +7,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(  private authSvc: AuthService,){
+
+  constructor(  private authSvc: AuthService){
 
   }
-  ngOnInit(): void {}
+  isLoged = this.authSvc.isLoged;
+  ngOnInit(): void {
+
+    console.log(this.isLoged)
+  }
 
 }

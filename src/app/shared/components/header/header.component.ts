@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit  {
   isAdmin = false;
   @Output() toggleSidenav = new EventEmitter <void> ();
-  constructor() { 
+  constructor(private authSvc: AuthService) {
 
   }
   ngOnInit(): void { }
 
   onToggleSidenav(): void {
     this.toggleSidenav.emit();
+  }
+  onLogout(){
+    this.authSvc.logout()
   }
 }

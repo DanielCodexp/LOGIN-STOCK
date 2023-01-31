@@ -7,7 +7,7 @@ import { User, UserResponse } from '../interfaces/user.interfaces';
   providedIn: 'root'
 })
 export class AuthService {
-
+  isLoged = false;
   constructor(
     private http: HttpClient
   ) { }
@@ -16,6 +16,9 @@ login(authData: User): Observable<UserResponse | void>{
   return this.http.post<UserResponse>(`${environment.API_URL}/auth/login`, authData)
   .pipe(
     map( (res: UserResponse)=> {
+
+      this.isLoged= true;
+      console.log('Estas logeado?', this.isLoged)
       console.log('Res->',res);
       //savenToken()
     }),
