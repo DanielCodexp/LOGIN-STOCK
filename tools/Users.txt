@@ -1,0 +1,14 @@
+  usuarios{
+	daniel
+	123456
+	admin
+
+
+	batmans
+	123456
+	reader
+
+
+	perez123
+	123456
+	admin
