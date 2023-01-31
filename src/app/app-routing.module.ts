@@ -2,6 +2,8 @@
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductosComponent } from './components/productos/productos.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
 
 const routes: Routes = [
 { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
@@ -11,11 +13,19 @@ const routes: Routes = [
 {
   path: 'qr',
   component: HomeComponent
+},
+{
+  path: 'products',
+  component: ProductosComponent
+},
+{
+  path: 'reports',
+  component: ReportesComponent
 }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

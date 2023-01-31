@@ -2,8 +2,10 @@
   <div class="container">
     <div class="d-flex mb-3">
     <div class="me-auto p-2 author cursor" routerLink="">ALMACEN REFACCIONES</div>
-    <div class="p-2 text cursor" routerLink="productos">PRODUCTOS</div>
-    <div class="p-2 text cursor" routerLink="reportes">REPORTES</div>
+    <div class="p-2 text cursor" routerLink="products">PRODUCTOS</div>
+    <div class="p-2 text cursor" routerLink="reports">REPORTES</div>
+    <div class="p-2 text cursor" routerLink="/login">INICIAR</div>
+    <div class="p-2 text cursor" (click)="onLogout()">SALIR</div>
   </div>
   </div>
 </div>
@@ -31,7 +33,8 @@
         <div  class="me-auto p-2 author">
         <p class="text" routerLink="productos">PRODUCTOS</p>
         <p class="text" routerLink="reportes">REPORTES</p>
-
+        <p class="text" routerLink="/login">INICIAR</p>
+        <p class="text"(click)="onLogout()">SALIR</p>
         </div>
        </div>
   </div>

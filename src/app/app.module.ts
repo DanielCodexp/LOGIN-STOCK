@@ -17,6 +17,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from './material.module';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
+import { ProductosComponent } from './components/productos/productos.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { SidebarModule } from './shared/components/sidebar/sidebar.module';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
+    ProductosComponent,
+    ReportesComponent,
   ],
   imports: [
     BrowserModule,

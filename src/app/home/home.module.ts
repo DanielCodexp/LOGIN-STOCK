@@ -9,10 +9,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
-    SafePipe
+    SafePipe,
   ],
   exports: [HomeComponent],
   imports: [
