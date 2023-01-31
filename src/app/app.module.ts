@@ -1,7 +1,7 @@
 import { LoginModule } from './pages/auth/login/login.module';
 import { HomeModule } from './home/home.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 
@@ -38,6 +38,7 @@ import { SidebarModule } from './shared/components/sidebar/sidebar.module';
     MatPaginatorModule,
     MaterialModule,
     SidebarModule,
+    ReactiveFormsModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
