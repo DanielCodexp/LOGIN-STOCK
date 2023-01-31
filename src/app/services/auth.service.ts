@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { User, UserResponse } from '../interfaces/user.interfaces';
+import { JwtHelperService } from '@auth0/angular-jwt';
+const helper = new JwtHelperService();
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +12,13 @@ export class AuthService {
   isLoged = false;
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+   // this.checkToken();
+  }
+
+// get isLogged():Observable<boolean> {
+//   return this.loggedIn.asObservable();
+// }
 
 login(authData: User): Observable<UserResponse | void>{
   return this.http.post<UserResponse>(`${environment.API_URL}/auth/login`, authData)
