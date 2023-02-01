@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 
 import { Products } from 'src/app/interfaces/products';
 import { ProductsService } from 'src/app/services/products.service';
+import { StockService } from 'src/app/services/stock.service';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -14,7 +15,10 @@ export class ProductosComponent implements OnInit  {
   pageSize = 15;
   desde: number = 0;
   hasta: number = 15;
-  constructor(private ProductsService: ProductsService){
+  constructor(
+    private ProductsService: ProductsService,
+    private stock: StockService
+    ){
 
   }
   ngOnInit(): void {
@@ -24,7 +28,7 @@ export class ProductosComponent implements OnInit  {
 
  getProductos()
   {
-    this.ProductsService.getProductos().subscribe(
+    this.stock.getProducts().subscribe(
       res=>{
         console.log(res);
         this.productos=<any>res;
