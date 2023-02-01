@@ -1,3 +1,4 @@
+import { validate } from "class-validator";
 import { Request, Response } from "express"
 import { getRepository } from "typeorm";
 import { tbrevisar } from "../entity/Reports";
@@ -28,8 +29,20 @@ export class ReportsController {
     reports.cCuePer = cCuePer;
     reports.nInvAPrd = nInvAPrd;
     reports. nRevPrd =  nRevPrd;
-  }
 
+ // Validate
+ const validationOpt = { validationError: { target: false, value: false } };
+ const errors = await validate(tbrevisar, validationOpt);
+ if (errors.length > 0) {
+   return res.status(400).json(errors);
+ }
+
+// Todo
+const userRepository = getRepository(tbrevisar);
+res.send('Report created')
+
+
+}
 
 }
 
