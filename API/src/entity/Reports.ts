@@ -6,7 +6,7 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 @Unique(['id'])
 export class tbrevisar {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   @MinLength(5)
@@ -34,3 +34,7 @@ export class tbrevisar {
   @IsNotEmpty()
   nRevPrd: string;
 }
+function AutoincrementColum() {
+  throw new Error("Function not implemented.");
+}
+
