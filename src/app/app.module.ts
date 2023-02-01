@@ -19,6 +19,7 @@ import { MaterialModule } from './material.module';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
+import { ProductoSeleccionadoComponent } from './components/producto-seleccionado/producto-seleccionado.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,10 @@ import { ReportesComponent } from './components/reportes/reportes.component';
     FooterComponent,
     ProductosComponent,
     ReportesComponent,
+    ProductoSeleccionadoComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserModule,

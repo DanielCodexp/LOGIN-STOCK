@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { CheckLoginGuard } from './shared/guards/check-login.guard';
+import { ProductoSeleccionadoComponent } from './components/producto-seleccionado/producto-seleccionado.component';
 
 const routes: Routes = [
   {
@@ -41,10 +42,14 @@ const routes: Routes = [
     path: 'reports',
     component: ReportesComponent,
   },
+  {
+    path: 'qr/:id',
+    component: ProductoSeleccionadoComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+exports: [RouterModule],
 })
 export class AppRoutingModule {}

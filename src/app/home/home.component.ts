@@ -10,6 +10,7 @@ import { Equipo } from '../services/products.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { clippingParents } from '@popperjs/core';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -67,7 +68,8 @@ public qrCodeResult: ScannerQRCodeSelectedFiles[] = [];
 
   public qrSelect(id:string){
     this.select = id;
-    this.router.navigate(['/rew/'+id]);
+    console.log(this.select);
+    this.router.navigate(['qr/'+id]);
   }
 
 

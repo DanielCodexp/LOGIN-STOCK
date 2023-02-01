@@ -23,6 +23,10 @@ getReport() {
   return this.http.get(`${environment.API_URL}/reports`)
 }
 
+getProductSelect(id:string) {
+  return this.http.get(`${environment.API_URL}/products`)
+}
+
 
   }
 

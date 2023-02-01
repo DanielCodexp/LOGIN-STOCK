@@ -1,0 +1,72 @@
+<div class="container">
+  <!--Seccion donde se muestra la informacion el producto seleccionado-->
+  <section class="card" *ngIf="!correcto">
+    <div class="card-header">
+      Codigo Seleccionado: {{producto.cCodPrd}}
+    </div>
+    <div class="card-body">
+      <div class="d-flex justify-content-around">
+        <div class="p-2">Descripcion</div>
+        <div class="p-2">{{producto.cDesPrd}}
+        </div>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="p-2">Posición</div>
+        <div class="p-2">{{producto.cPosPrd}}
+        </div>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="p-2">Existencia</div>
+        <div class="p-2">{{producto.cDesUm}}
+        </div>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="p-2">¿Correcto?</div>
+        <div class="p-2">
+          <button type="button" class="btn btn-success" style="margin-right: 1rem;">Si</button>
+          <button type="button" class="btn btn-danger" (click)="correct()">No</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Seccion donde se muestra el formulario si existe diferencia entre el inventario-->
+
+  <section *ngIf="correcto">
+    <div class="container">
+      <p>AGREGAR REPORTE</p>
+      <div class="row">
+        <form>
+          <div class="col-sm-6">
+            <div class="mb-3">
+              <label class="form-label">clave</label>
+              <input [(ngModel)]="producto.cCodPrd" disabled type="text" class="form-control" name="producto.cCodPrd">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Clave Personal</label>
+              <input [(ngModel)]="report.cCuePer" maxlength="5" type="text" class="form-control" name="cCuePer">
+            </div>
+
+
+
+          </div>
+
+
+          <div class="col-sm-6">
+            <div class="mb-3">
+              <label class="form-label">Inventario Real</label>
+              <input [(ngModel)]="report.nlnvAprd" maxlength="9"  type="number" class="form-control" name="nlnvAprd">
+            </div>
+          </div>
+          <button (click)="addreport()" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+</div>
