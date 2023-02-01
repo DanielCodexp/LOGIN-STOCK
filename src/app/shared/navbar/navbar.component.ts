@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent   implements OnInit{
 
   public isMobile = false;
-
+  public isLogged = false;
   constructor(
     private deviceService: DeviceDetectorService,
     private authSvc: AuthService,
@@ -21,10 +21,11 @@ export class NavbarComponent   implements OnInit{
    }
 
   ngOnInit(): void {
+    this.authSvc.isLogged.subscribe((res) =>(this.isLogged = res));
   }
   onLogout(){
     this.authSvc.logout();
-    this.router.navigate(['login'])
+ 
 
   }
 }

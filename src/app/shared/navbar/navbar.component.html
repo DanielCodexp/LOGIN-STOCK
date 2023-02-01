@@ -4,9 +4,12 @@
     <div class="me-auto p-2 author cursor" routerLink="">ALMACEN REFACCIONES</div>
     <div class="p-2 text cursor" routerLink="products">PRODUCTOS</div>
     <div class="p-2 text cursor" routerLink="reports">REPORTES</div>
-    <div class="p-2 text cursor" routerLink="/login">INICIAR</div>
-    <div class="p-2 text cursor" (click)="onLogout()">SALIR</div>
+    <div *ngIf="!isLogged; else viewLogout" class="p-2 text cursor" routerLink="login">INICIAR</div>
+    
   </div>
+  <ng-template #viewLogout >
+    <div class="p-2 text cursor" (click)="onLogout()">SALIR</div>
+  </ng-template>
   </div>
 </div>
 

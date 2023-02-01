@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { User, UserResponse } from '../interfaces/user.interfaces';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 const helper = new JwtHelperService();
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class AuthService {
   isLoged = false;
   loggedIn = new BehaviorSubject<boolean>(false)
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
    this.checkToken();
   }
@@ -36,6 +38,7 @@ login(authData: User): Observable<UserResponse | void>{
 logout(): void {
   localStorage.removeItem('token')
   this.loggedIn.next(false);
+  this.router.navigate(['login'])
 }
 
 private checkToken(): void {
