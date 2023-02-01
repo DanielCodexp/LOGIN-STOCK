@@ -9,6 +9,6 @@ const routes = Router();
 routes.use('/auth', auth);
 routes.use('/users', user);
 routes.use('/products', products)
-routes.use('reports',reports)
+routes.use('/reports',reports)
 
 export default routes;

@@ -28,5 +28,4 @@ export class tbrevisar {
   @MinLength(5)
   @IsNotEmpty()
   nRevPrd: string;
-
 }
