@@ -4,6 +4,7 @@ import { tbproductos } from "../entity/Products";
 
 
 
+
 export class ProductsController {
 
 static getAll = async (req: Request, res: Response) => {
@@ -17,6 +18,17 @@ if(products.length>0) {
   res.status(404).json({ message: 'Not result' });
 }
 
+}
+
+static getById = async (req: Request, res: Response) =>{
+  const { cCodPrd } = req.params;
+  const userRepository = getRepository(tbproductos);
+  try {
+    const tbproductos = await userRepository.findOneOrFail(cCodPrd);
+    res.send(tbproductos);
+  } catch (e) {
+    res.status(404).json({ message: 'Not result' });
+  }
 }
 
 static new = async (req: Request, res: Response) => {

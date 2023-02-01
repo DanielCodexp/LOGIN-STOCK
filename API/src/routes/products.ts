@@ -5,9 +5,11 @@ import { ProductsController } from './../controller/Products.Controller';
 
 const router = Router();
 
-//products all products
+//Products all products
 router.get('/', ProductsController.getAll);
 
+//Get one product
+router.get('/:cCodPrd', ProductsController.getById)
 //CreateProduct
 
 router.post('/', ProductsController.new);
