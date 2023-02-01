@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Reports } from '../interfaces/reports';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,22 @@ getProductSelect(id:string) {
   return this.http.get(`${environment.API_URL}/products`)
 }
 
+addReport(Report:Reports):Observable<Reports> {
+  console.log(Report)
+  return this.http
+  .post<Reports>
+  (`${environment.API_URL}/reports`,Report)
+  .pipe(catchError(this.handlerError));
+}
+
+handlerError(error): Observable<never> {
+  let errorMessage = 'Error unknown';
+  if (error) {
+    errorMessage = `Error ${error.message}`;
+  }
+  window.alert(errorMessage);
+  return throwError(errorMessage);
+}
 
   }
 

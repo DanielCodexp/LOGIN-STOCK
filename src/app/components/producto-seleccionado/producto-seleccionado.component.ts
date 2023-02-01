@@ -66,8 +66,8 @@ export class ProductoSeleccionadoComponent implements  OnInit {
 
   addreport(){
   console.log(this.report)
-  this.ServicioProd.addReport(this.report).subscribe();
-  this.router.navigate(['']);
+  this.stock.addReport(this.report).subscribe();
+  // this.router.navigate(['qr']);
 
 
 }
