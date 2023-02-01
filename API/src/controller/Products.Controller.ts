@@ -3,9 +3,10 @@ import { getRepository } from "typeorm";
 import { tbproductos } from "../entity/Products";
 
 
+
 export class ProductsController {
 
-static getAll= async (req: Request, res: Response) => {
+static getAll = async (req: Request, res: Response) => {
   const userRepository = getRepository( tbproductos);
   let products = await userRepository.find();
 
@@ -17,6 +18,18 @@ if(products.length>0) {
 }
 
 }
+
+static new = async (req: Request, res: Response) => {
+  const { cCodPrd,  cDesPrd, cPosPrd,  cDesUM } = req.body;
+  const product = new tbproductos();
+  product.cCodPrd = cCodPrd;
+  product.cDesPrd = cDesPrd;
+  product.cPosPrd = cPosPrd;
+  product.cDesUM = cDesUM;
+}
+
+
+
 }
 
 export default ProductsController;
