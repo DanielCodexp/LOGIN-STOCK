@@ -31,16 +31,20 @@ export class ReportsController {
     reports. nRevPrd =  nRevPrd;
 
  // Validate
- const validationOpt = { validationError: { target: false, value: false } };
- const errors = await validate(tbrevisar, validationOpt);
+//  const validationOpt = { validationError: { target: false, value: false } };
+ const errors = await validate(tbrevisar);
  if (errors.length > 0) {
    return res.status(400).json(errors);
  }
 
 // Todo
 const userRepository = getRepository(tbrevisar);
-res.send('Report created')
-
+try {
+  await userRepository.save(reports)
+} catch(e){
+  return res.status(409).json({ message: 'cCodPrd already exist' });
+}
+res.send('Report created');
 
 }
 
