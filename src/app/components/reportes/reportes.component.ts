@@ -6,6 +6,7 @@ import { Rew } from 'src/app/interfaces/rew';
 import { PageEvent } from '@angular/material/paginator';
 import { Reports } from '../../interfaces/reports';
 import { Router } from '@angular/router';
+import { StockService } from 'src/app/services/stock.service';
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
@@ -26,7 +27,8 @@ export class ReportesComponent implements OnInit {
 
   constructor(
     private ProductsService: ProductsService,
-    private router:Router
+    private router:Router,
+    private stock: StockService
     ) {
 
   }
@@ -36,7 +38,7 @@ export class ReportesComponent implements OnInit {
   }
 
   getReports() {
-    this.ProductsService.getReports().subscribe(
+    this.stock.getReport().subscribe(
       res => {
         console.log(res);
         this.reports = <any>res;

@@ -19,6 +19,9 @@ getProducts() {
 
 }
 
+getReport() {
+  return this.http.get(`${environment.API_URL}/reports`)
+}
 
 
   }
