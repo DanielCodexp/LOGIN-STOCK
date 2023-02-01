@@ -1,13 +1,11 @@
 import { IsNotEmpty, MinLength } from "class-validator";
-import { Column, Entity, Unique } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 
 @Entity()
 @Unique(['cCodPrd'])
 export class tbproductos {
-  @Column()
-  @MinLength(5)
-  @IsNotEmpty()
+  @PrimaryGeneratedColumn()
   cCodPrd: string;
 
   @Column()
