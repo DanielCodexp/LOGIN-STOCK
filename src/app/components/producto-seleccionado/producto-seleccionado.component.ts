@@ -27,7 +27,7 @@ export class ProductoSeleccionadoComponent implements  OnInit {
     cCodPrd: this.id_equipo,
     dtFecReg:new Date,
     cCuePer: '',
-    nlnvAprd: '',
+    nInvAPrd: '2',
     nRevPrd: '1'
   };
   public correcto!: boolean;
@@ -63,7 +63,7 @@ export class ProductoSeleccionadoComponent implements  OnInit {
   addreport(){
   console.log(this.report)
   this.stock.addReport(this.report).subscribe();
-  this.router.navigate(['qr']);
+  // this.router.navigate(['qr']);
 
 
 }

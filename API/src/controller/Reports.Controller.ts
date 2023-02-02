@@ -42,7 +42,8 @@ const userRepository = getRepository(tbrevisar);
 try {
   await userRepository.save(reports)
 } catch(e){
-  return res.status(409).json({ message: 'cCodPrd already exist' });
+  return console.error(e);
+
 }
 res.send('Report created');
 
