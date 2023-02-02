@@ -48,11 +48,7 @@ export class ProductoSeleccionadoComponent implements  OnInit {
 
     if(id_entrada){
       this.stock.getProductSelect(id_entrada).subscribe(
-        res=>{
-          this.producto = res[0]
-          console.log(res[0]);
-        },
-        err=>console.log
+        res=> this.producto = <any>res
       )
     }
   }

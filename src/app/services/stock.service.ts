@@ -25,7 +25,7 @@ getReport() {
 }
 
 getProductSelect(id:string) {
-  return this.http.get(`${environment.API_URL}/products`)
+  return this.http.get(`${environment.API_URL}/products/`+id)
 }
 
 addReport(Report:Reports):Observable<Reports> {
