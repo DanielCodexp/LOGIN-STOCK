@@ -25,10 +25,10 @@ export class ReportsController {
     const {cCodPrd, dtFecReg , cCuePer, nRevPrd, nInvAPrd } = req.body;
     const reports = new tbrevisar();
     reports.cCodPrd = cCodPrd;
-    reports. dtFecReg =  dtFecReg;
+    reports.dtFecReg =  dtFecReg;
     reports.cCuePer = cCuePer;
     reports.nInvAPrd = nInvAPrd;
-    reports. nRevPrd =  nRevPrd;
+    reports.nRevPrd =  nRevPrd;
 
  // Validate
 //  const validationOpt = { validationError: { target: false, value: false } };

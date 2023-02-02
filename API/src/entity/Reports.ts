@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 
 @Entity()
-@Unique(['cCodPrd'])
+@Unique(['id'])
 export class tbrevisar {
   @PrimaryGeneratedColumn()
   id: number;
