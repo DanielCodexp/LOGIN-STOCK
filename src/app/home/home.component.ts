@@ -48,7 +48,6 @@ public qrCodeResult: ScannerQRCodeSelectedFiles[] = [];
 
   public onEvent(e: ScannerQRCodeResult[]): void {
     this.res= e;
-    console.log(this.res);
     console.log(e);
   }
 
@@ -68,7 +67,6 @@ public qrCodeResult: ScannerQRCodeSelectedFiles[] = [];
 
   public qrSelect(id:string){
     this.select = id;
-    console.log(this.select);
     this.router.navigate(['qr/'+id]);
   }
 

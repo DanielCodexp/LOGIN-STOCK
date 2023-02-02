@@ -60,7 +60,7 @@ export class ReportesComponent implements OnInit {
   listarReportes() {
     this.ProductsService.getReports().subscribe(
       res => {
-        console.log(res);
+
         this.listarReportes=<any> res;
       },
       err => console.log(err)

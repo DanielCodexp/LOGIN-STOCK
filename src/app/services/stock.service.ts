@@ -29,7 +29,6 @@ getProductSelect(id:string) {
 }
 
 addReport(Report:Reports):Observable<Reports> {
-  console.log(Report)
   return this.http
   .post<Reports>
   (`${environment.API_URL}/reports`,Report)

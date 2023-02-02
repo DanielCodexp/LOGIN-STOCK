@@ -16,8 +16,6 @@ export class HomeComponent implements OnInit {
   }
   isLoged = this.authSvc.isLoged;
   ngOnInit(): void {
-
-    console.log(this.isLoged)
   }
 
   public qr(){

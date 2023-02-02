@@ -55,6 +55,9 @@ export class ProductoSeleccionadoComponent implements  OnInit {
   public correct(){
     this.correcto = true;
   }
+  public si() {
+    this.router.navigate(['qr']);
+  }
 
 
 
