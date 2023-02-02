@@ -35,6 +35,14 @@ addReport(Report:Reports):Observable<Reports> {
 
 }
 
+getImage(){
+  return this.http.get(`${environment.API_URL}/image`)
+}
+
+getImageById(id:string){
+return this.http.get(`${environment.API_URL}/image/`+id)
+}
+
 handlerError(error): Observable<never> {
   let errorMessage = 'Error unknown';
   if (error) {
