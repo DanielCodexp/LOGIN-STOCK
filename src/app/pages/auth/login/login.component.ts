@@ -28,12 +28,7 @@ constructor(
   }
   onLogin(){
     // const sep = this.log.value
-
-
-    console.log( this.form.value)
      this.authSvc.login(this.form.value).subscribe((res) => {
-      console.log('h')
-
         this.router.navigate(['qr']);
       }
  );

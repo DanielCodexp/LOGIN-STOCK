@@ -19,7 +19,7 @@ export class ReportesComponent implements OnInit {
     cCodPrd: '',
     cDesPrd: '',
     cPosPrd: '',
-    cDesUm: '',
+    cDesUM: '',
   }
   pageSize = 15;
   desde: number = 0;
@@ -40,7 +40,6 @@ export class ReportesComponent implements OnInit {
   getReports() {
     this.stock.getReport().subscribe(
       res => {
-        console.log(res);
         this.reports = <any>res;
       }
     )

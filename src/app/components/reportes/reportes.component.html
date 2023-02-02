@@ -8,8 +8,8 @@
       <th scope="col">Codigo</th>
       <th scope="col">Clave Personal</th>
       <th scope="col">Fecha de reporte</th>
-      <th scope="col">Revisado</th>
       <th scope="col">Existencia Real</th>
+      <th scope="col">Revisado</th>
       <th></th>
       <th></th>
     </tr>
@@ -18,10 +18,10 @@
   <tbody *ngFor="let rep of reports | slice:desde:hasta">
     <tr>
       <td>{{rep.cCodPrd}}</td>
-      <td>{{rep.cCuePer}}</td>
+      <td>{{rep.cCvePer}}</td>
       <td>{{rep.dtFecReg}}</td>
       <td><span class="badge bg-danger">{{rep.nInvAPrd}}</span></td>
-      <td>{{rep.nRevPrd}}</td>
+      <td> <span class="badge text-bg-warning">{{rep.nRevPrd}}</span></td>
       <td><span class="badge bg-danger cursor" (click)="modificar(rep.cCodPrd)">Modificar</span></td>
       <td><span class="material-symbols-outlined" (click)="eliminar(rep.cCodPrd)">
         delete

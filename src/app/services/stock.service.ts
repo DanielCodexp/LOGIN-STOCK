@@ -33,7 +33,7 @@ addReport(Report:Reports):Observable<Reports> {
   return this.http
   .post<Reports>
   (`${environment.API_URL}/reports`,Report)
-  .pipe(catchError(this.handlerError));
+
 }
 
 handlerError(error): Observable<never> {

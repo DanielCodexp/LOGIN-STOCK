@@ -44,7 +44,6 @@ logout(): void {
 private checkToken(): void {
   const userToken = localStorage.getItem('token')
   const isExpired = helper.isTokenExpired(userToken);
-  console.log('IsExpired -->', isExpired);
   isExpired ? this.logout() : this.loggedIn.next(true);
 }
 

@@ -22,11 +22,11 @@ export class ReportsController {
   }
 
   static new = async (req: Request, res: Response) => {
-    const {cCodPrd, dtFecReg , cCuePer, nRevPrd, nInvAPrd } = req.body;
+    const {cCodPrd, dtFecReg , cCvePer, nRevPrd, nInvAPrd } = req.body;
     const reports = new tbrevisar();
     reports.cCodPrd = cCodPrd;
     reports.dtFecReg =  dtFecReg;
-    reports.cCuePer = cCuePer;
+    reports.cCvePer = cCvePer;
     reports.nInvAPrd = nInvAPrd;
     reports.nRevPrd =  nRevPrd;
 

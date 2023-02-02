@@ -20,14 +20,14 @@ export class ProductoSeleccionadoComponent implements  OnInit {
   cCodPrd: '',
   cDesPrd: '',
   cPosPrd: '',
-  cDesUm: '',
+  cDesUM: '',
   };
 
   report: Reports={
     cCodPrd: this.id_equipo,
     dtFecReg:new Date,
-    cCuePer: '',
-    nInvAPrd: '2',
+    cCvePer: 'A2075',
+    nInvAPrd: '',
     nRevPrd: '1'
   };
   public correcto!: boolean;
@@ -44,7 +44,6 @@ export class ProductoSeleccionadoComponent implements  OnInit {
 
   ngOnInit(): void {
     const id_entrada = <string>this.activeRoute.snapshot.params['id'];
-    console.log('id de entrada: '+id_entrada);
 
     if(id_entrada){
       this.stock.getProductSelect(id_entrada).subscribe(
@@ -55,15 +54,13 @@ export class ProductoSeleccionadoComponent implements  OnInit {
 
   public correct(){
     this.correcto = true;
-    console.log(this.correcto)
   }
 
 
 
   addreport(){
-  console.log(this.report)
   this.stock.addReport(this.report).subscribe();
-  // this.router.navigate(['qr']);
+  this.router.navigate(['qr']);
 
 
 }

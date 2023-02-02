@@ -30,7 +30,6 @@ export class ProductosComponent implements OnInit  {
   {
     this.stock.getProducts().subscribe(
       res=>{
-        console.log(res);
         this.productos=<any>res;
       },
       err => console.log(err)

@@ -1,5 +1,5 @@
 import { IsNotEmpty, MinLength } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Column, Double, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 
 @Entity()
@@ -21,18 +21,18 @@ export class tbrevisar {
   @Column()
   @MinLength(5)
   @IsNotEmpty()
-  cCuePer: string;
+  cCvePer: string;
 
   @Column()
   @MinLength(5)
   @IsNotEmpty()
-  nInvAPrd: string;
+  nInvAPrd: number;
 
 
   @Column()
   @MinLength(5)
   @IsNotEmpty()
-  nRevPrd: string;
+  nRevPrd: Boolean;
 }
 function AutoincrementColum() {
   throw new Error("Function not implemented.");
