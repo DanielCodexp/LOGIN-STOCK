@@ -10,22 +10,30 @@
       <th scope="col">Fecha de reporte</th>
       <th scope="col">Existencia Real</th>
       <th scope="col">Revisado</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody *ngFor="let rep of reports | slice:desde:hasta">
     <tr>
       <td>{{rep.cCodPrd}}</td>
-      <td>{{rep.cCvePer}}</td>
+      <td>
+        <!-- {{rep.cCvePer}} -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="material-symbols-outlined">
+                visibility_off
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">{{rep.cCvePer}}</a></li>
+            </ul>
+      </td>
       <td>{{rep.dtFecReg | date: 'MMM d, y, h:mm: ss a' }}</td>
-      <td><span class="badge bg-danger">{{rep.nInvAPrd}}</span></td>
+      <td>{{rep.nInvAPrd}}</td>
       <td> <span class="badge text-bg-warning">{{rep.nRevPrd}}</span></td>
-      <td><span class="badge bg-danger cursor" (click)="modificar(rep.cCodPrd)">Modificar</span></td>
+      <!-- <td><span class="badge bg-danger cursor" (click)="modificar(rep.cCodPrd)">Modificar</span></td>
       <td><span class="material-symbols-outlined" (click)="eliminar(rep.cCodPrd)">
         delete
-        </span></td>
+        </span></td> -->
     </tr>
   </tbody>
 </table>
@@ -35,4 +43,6 @@
             >
 </mat-paginator>
 </section>
+
+
 
