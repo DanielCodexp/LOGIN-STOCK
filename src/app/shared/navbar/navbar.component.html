@@ -1,48 +1,52 @@
 <div *ngIf="isLogged;">
-<div *ngIf="isMobile == false" class="nav">
-  <div class="container">
-    <div class="d-flex mb-3">
-    <div class="me-auto p-2 author cursor" routerLink="qr">ALMACEN REFACCIONES</div>
-    <div class="p-2 text cursor" routerLink="products">PRODUCTOS</div>
-    <div class="p-2 text cursor" routerLink="reports">REPORTES</div>
-    <div *ngIf="!isLogged; else viewLogout" class="p-2 text cursor" routerLink="login">INICIAR</div>
-
-  </div>
-  <ng-template #viewLogout >
-    <div class="p-2 text cursor" (click)="onLogout()">SALIR</div>
-  </ng-template>
-  </div>
-</div>
-
-<div *ngIf="isMobile" class="nav">
-  <div class="container">
-    <div class="d-flex mb-3">
-      <div  class="me-auto p-2 author" routerLink="qr">
-        ALMACEN REFACCIONES
+  <div *ngIf="isMobile == false" class="nav">
+    <div class="container">
+      <div class="d-flex mb-3">
+        <div class="me-auto p-2 author cursor" routerLink="qr">ALMACEN REFACCIONES</div>
+        <div class="p-2 text cursor" routerLink="products">PRODUCTOS</div>
+        <div class="p-2 text cursor" routerLink="reports">REPORTES</div>
+        <div *ngIf="!isLogged; else viewLogout" class="p-2 text cursor" routerLink="login">INICIAR</div>
 
       </div>
-     <div>
-       <span  type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-
-          <span class="material-symbols-outlined fz text" style="    margin-top: 4px;" >
-            menu
-            </span>
-
-        </span>
-     </div>
+      <ng-template #viewLogout>
+        <div class="p-2 text cursor" (click)="onLogout()">SALIR</div>
+      </ng-template>
     </div>
-    <div class="collapse" id="collapseExample">
-
-       <div class="d-flex mb-3">
-        <div  class="me-auto p-2 author">
-        <p class="text" routerLink="productos">PRODUCTOS</p>
-        <p class="text" routerLink="reportes">REPORTES</p>
-        <p class="text" routerLink="/login">INICIAR</p>
-        <p class="text"(click)="onLogout()">SALIR</p>
-        </div>
-       </div>
   </div>
 
-</div>
+  <div *ngIf="isMobile" class="nav">
+    <div class="container">
+      <div class="d-flex mb-3">
+        <div class="me-auto p-2 author" routerLink="qr">
+          ALMACEN REFACCIONES
 
-</div>
+        </div>
+        <div>
+          <span type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+            aria-controls="collapseExample">
+
+            <span class="material-symbols-outlined fz text" style="    margin-top: 4px;">
+              menu
+            </span>
+
+          </span>
+        </div>
+      </div>
+      <div class="collapse" id="collapseExample">
+
+        <div class="d-flex mb-3">
+          <div class="me-auto p-2 author">
+            <p class="text" routerLink="products">PRODUCTOS</p>
+            <p class="text" routerLink="reports">REPORTES</p>
+            <p *ngIf="!isLogged; else view" class="text" routerLink="/login">INICIAR</p>
+
+          </div>
+          <ng-template #view>
+            <p class="text" (click)="onLogout()">SALIR</p>
+          </ng-template>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
