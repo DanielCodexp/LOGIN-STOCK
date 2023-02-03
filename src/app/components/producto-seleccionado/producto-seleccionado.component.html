@@ -26,9 +26,19 @@
           <button type="button" class="btn btn-success" style="margin-right: 1rem;"(click)="si()" >Si</button>
           <button type="button" class="btn btn-danger" (click)="correct()">No</button>
         </div>
+
+
       </div>
     </div>
   </section>
+  <div   style="background-color: aqua;">
+     <h1>{{img.cCodPrd}}</h1>
+     <!-- <h1>{{img.image}}</h1> -->
+    <img [src]="img.image" class="" width="49%" height="35%"alt="">
+
+
+
+  </div>
 
   <!--Seccion donde se muestra el formulario si existe diferencia entre el inventario-->
 

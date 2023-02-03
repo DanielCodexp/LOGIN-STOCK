@@ -32,6 +32,7 @@ export class ProductoSeleccionadoComponent implements  OnInit {
   };
   public correcto!: boolean;
 
+  public img;
 
   constructor(
     private router:Router,
@@ -44,10 +45,15 @@ export class ProductoSeleccionadoComponent implements  OnInit {
 
   ngOnInit(): void {
     const id_entrada = <string>this.activeRoute.snapshot.params['id'];
-
     if(id_entrada){
       this.stock.getProductSelect(id_entrada).subscribe(
         res=> this.producto = <any>res
+      )
+      this.stock.getImageById(id_entrada).subscribe(
+        img=> {
+          this.img = <any> img
+          console.log(this.img)
+        }
       )
     }
   }
