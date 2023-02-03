@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import { clippingParents } from '@popperjs/core';
 
 @Component({
   selector: 'app-login',
@@ -16,18 +17,13 @@ constructor(
   private router: Router,
 ){}
   ngOnInit(): void {
-    // const userData = {
-    //   username: 'daniel',
-    //   password: '123456'
-    // };
-    // this.authSvc.login(userData).subscribe((res) => console.log('Login'));
     this.form = this.fb.group({
       username: ["", Validators.required],
       password: ["", Validators.required],
     });
   }
   onLogin(){
-    // const sep = this.log.value
+
      this.authSvc.login(this.form.value).subscribe((res) => {
         this.router.navigate(['qr']);
       }

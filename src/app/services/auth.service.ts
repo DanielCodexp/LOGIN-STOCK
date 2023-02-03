@@ -5,13 +5,16 @@ import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import { User, UserResponse } from '../interfaces/user.interfaces';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { clippingParents } from '@popperjs/core';
 const helper = new JwtHelperService();
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   isLoged = false;
   loggedIn = new BehaviorSubject<boolean>(false)
+  rsx;
   constructor(
     private http: HttpClient,
     private router: Router
@@ -28,6 +31,7 @@ login(authData: User): Observable<UserResponse | void>{
   .pipe(
     map( (res: UserResponse)=> {
       this.saveToken(res.token);
+      this.rsx =res
       this.loggedIn.next(true);
       return res;
     }),
