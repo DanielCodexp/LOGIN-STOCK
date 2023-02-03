@@ -2,7 +2,16 @@
   <!--Seccion donde se muestra la informacion el producto seleccionado-->
   <section class="card" *ngIf="!correcto">
     <div class="card-header">
-      Codigo Seleccionado: {{producto.cCodPrd}}
+      <!-- Codigo Seleccionado: {{producto.cCodPrd}} -->
+
+      <div class="d-flex justify-content-around">
+        <div class="p-2">Codigo Seleccionado: {{producto.cCodPrd}}</div>
+        <div class="p-2">
+          <img [src]="img.image" class="img"alt="">
+        </div>
+      </div>
+
+
     </div>
     <div class="card-body">
       <div class="d-flex justify-content-around">
@@ -31,14 +40,9 @@
       </div>
     </div>
   </section>
-  <div   style="background-color: aqua;">
-     <h1>{{img.cCodPrd}}</h1>
-     <!-- <h1>{{img.image}}</h1> -->
-    <img [src]="img.image" class="" width="49%" height="35%"alt="">
-
-
-
-  </div>
+  <!-- <div>
+    <img [src]="img.image" class="img"alt="">
+  </div> -->
 
   <!--Seccion donde se muestra el formulario si existe diferencia entre el inventario-->
 
