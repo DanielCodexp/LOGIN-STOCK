@@ -19,7 +19,7 @@
     <tr>
       <td>{{rep.cCodPrd}}</td>
       <td>{{rep.cCvePer}}</td>
-      <td>{{rep.dtFecReg}}</td>
+      <td>{{rep.dtFecReg | date: 'MMM d, y, h:mm: ss a' }}</td>
       <td><span class="badge bg-danger">{{rep.nInvAPrd}}</span></td>
       <td> <span class="badge text-bg-warning">{{rep.nRevPrd}}</span></td>
       <td><span class="badge bg-danger cursor" (click)="modificar(rep.cCodPrd)">Modificar</span></td>
