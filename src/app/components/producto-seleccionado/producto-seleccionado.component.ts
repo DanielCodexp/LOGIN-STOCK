@@ -6,6 +6,8 @@ import { Products } from 'src/app/interfaces/products';
 import { Equipo, ProductsService } from 'src/app/services/products.service';
 import { Reports } from '../../interfaces/reports';
 import { StockService } from 'src/app/services/stock.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 
 @Component({
@@ -15,35 +17,39 @@ import { StockService } from 'src/app/services/stock.service';
 })
 export class ProductoSeleccionadoComponent implements  OnInit {
    id_equipo = <string>this.activeRoute.snapshot.params['id'];
-  producto: Products=
+   public src;
+   producto: Products=
     {
   cCodPrd: '',
   cDesPrd: '',
   cPosPrd: '',
   cDesUM: '',
   };
-
   report: Reports={
     cCodPrd: this.id_equipo,
     dtFecReg:new Date,
-    cCvePer: 'A2075',
+    cCvePer: this.authSvc.rsx.token,
     nInvAPrd: '',
     nRevPrd: '1'
   };
+
   public correcto!: boolean;
 
   public img;
+
 
   constructor(
     private router:Router,
     private ServicioProd: ProductsService,
     private activeRoute:ActivatedRoute,
-    private stock: StockService
+    private stock: StockService,
+      private authSvc: AuthService,
   ){
 
   }
 
   ngOnInit(): void {
+
     const id_entrada = <string>this.activeRoute.snapshot.params['id'];
     if(id_entrada){
       this.stock.getProductSelect(id_entrada).subscribe(
@@ -52,11 +58,11 @@ export class ProductoSeleccionadoComponent implements  OnInit {
       this.stock.getImageById(id_entrada).subscribe(
         img=> {
           this.img = <any> img
-          console.log(this.img)
         }
       )
     }
   }
+
 
   public correct(){
     this.correcto = true;
@@ -70,9 +76,11 @@ export class ProductoSeleccionadoComponent implements  OnInit {
   addreport(){
   this.stock.addReport(this.report).subscribe();
   this.router.navigate(['qr']);
-
-
 }
+
+
+
+
 }
 
 
