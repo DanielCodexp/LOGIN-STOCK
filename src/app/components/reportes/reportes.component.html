@@ -2,7 +2,7 @@
 <!--********************SECCION TABLA*************************-->
 
 <section>
-<table class="table table-dark table-striped">
+<table #screen id="table" class="table table-dark table-striped">
   <thead>
     <tr>
       <th scope="col">Codigo</th>
@@ -10,6 +10,9 @@
       <th scope="col">Fecha de reporte</th>
       <th scope="col">Existencia Real</th>
       <th scope="col">Revisado</th>
+      <th ><span class="material-symbols-outlined cursor" (click)="download()">
+        download_for_offline
+        </span></th>
     </tr>
   </thead>
 
@@ -34,7 +37,9 @@
       <td><span class="material-symbols-outlined" (click)="eliminar(rep.cCodPrd)">
         delete
         </span></td> -->
+        <td></td>
     </tr>
+
   </tbody>
 </table>
 <mat-paginator [length]="reports.length"
@@ -43,6 +48,8 @@
             >
 </mat-paginator>
 </section>
-
-
+ <div id="download">
+  <img #canvas>
+  <a #downloadLink></a>
+</div>
 
