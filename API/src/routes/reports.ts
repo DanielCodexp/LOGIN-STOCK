@@ -9,7 +9,10 @@ const router = Router();
 router.get('/', ReportsController.getAll);
 
 //Create Reports
-router.post('/', ReportsController.new)
+router.post('/', ReportsController.new);
+
+//get by date
+router.get('/:cCodPrd', ReportsController.getByDate );
 
 
 export default router;
