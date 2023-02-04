@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { StockService } from 'src/app/services/stock.service';
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
+import * as html2pdf from 'html2pdf.js'
 @Component({
   selector: 'app-reportes',
   templateUrl: './reportes.component.html',
@@ -118,4 +119,19 @@ export class ReportesComponent implements OnInit {
       this.downloadLink.nativeElement.click();
     });
   }
-}
+
+  download(){
+    var element = document.getElementById('table');
+var opt = {
+  margin:       1,
+  filename:     'output.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+
+// New Promise-based usage:
+html2pdf().from(element).set(opt).save();
+  }
+  }
+
