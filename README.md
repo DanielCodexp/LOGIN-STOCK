@@ -9,10 +9,15 @@ https://fbellod.medium.com/como-integrar-el-framework-bootstrap-en-un-proyecto-a
 //sirve para detectar en que dispositivo esta logueado el usuario
 https://www.npmjs.com/package/ngx-device-detector
 
-*****************NGX-SCANNER-QRCODE+******************************
+*****************NGX-SCANNER-QRCODE******************************
 //sirve para poder leer los codigos qr  
 https://www.npmjs.com/package/ngx-scanner-qrcode
 
-****************HTML2PDF-DOWN-PDF+******************************
+****************HTML2PDF-DOWN-PDF******************************
 //sirve para convertir la tabla en pdf
 https://codingdiksha.com/convert-html-table-to-pdf-using-html2pdf-angular/
+
+
+***************COMANDO-PARA-EJECUTAR-EL-PROYECTO**************************
+//con este comando se ejecuta tanto el BackEnd como FrontEnd
+npm run dev
