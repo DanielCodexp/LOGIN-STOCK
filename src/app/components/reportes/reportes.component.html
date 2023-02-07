@@ -1,7 +1,7 @@
 
 <!--********************SECCION TABLA*************************-->
 
-<section>
+<!-- <section>
 <table #screen id="table" class="table table-dark table-striped">
   <thead>
     <tr>
@@ -20,7 +20,6 @@
     <tr>
       <td>{{rep.cCodPrd}}</td>
       <td>
-        <!-- {{rep.cCvePer}} -->
             <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="material-symbols-outlined">
                 visibility_off
@@ -33,11 +32,7 @@
       <td>{{rep.dtFecReg | date: 'MMM d, y, h:mm: ss a' }}</td>
       <td>{{rep.nInvAPrd}}</td>
       <td> <span class="badge text-bg-warning">{{rep.nRevPrd}}</span></td>
-      <!-- <td><span class="badge bg-danger cursor" (click)="modificar(rep.cCodPrd)">Modificar</span></td>
-      <td><span class="material-symbols-outlined" (click)="eliminar(rep.cCodPrd)">
-        delete
-        </span></td> -->
-        <td></td>
+      <td></td>
     </tr>
 
   </tbody>
@@ -51,5 +46,41 @@
  <div id="download">
   <img #canvas>
   <a #downloadLink></a>
-</div>
+</div> -->
 
+<mat-form-field>
+  <mat-label>Buscar</mat-label>
+  <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+</mat-form-field>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef> Código </th>
+      <td mat-cell *matCellDef="let reports"> {{reports.cCodPrd}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clave Personal">
+      <th mat-header-cell *matHeaderCellDef> Clave Personal </th>
+      <td mat-cell *matCellDef="let reports"> {{reports.cCvePer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha de reporte">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let reports"> {{reports.dtFecReg}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha de reporte">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let reports"> {{reports.dtFecReg}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha de reporte">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let reports"> {{reports.dtFecReg}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+  </table>
+</div>
