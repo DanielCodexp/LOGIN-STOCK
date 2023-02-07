@@ -6,6 +6,8 @@ import { tbrevisar } from "../entity/Reports";
 
 
 
+
+
 export class ReportsController {
 
   static getAll = async (req: Request, res: Response) => {
@@ -47,7 +49,25 @@ try {
 }
 res.send('Report created');
 
-}
+  }
+
+  static getByDate = async (req: Request, res: Response) => {
+    const { cCodPrd } = req.params;
+    const userRepository = getRepository(tbrevisar);
+
+     try{
+       const tbrevisar = await userRepository.findOneOrFail(cCodPrd);
+       res.send(tbrevisar)
+     } catch (e){
+       console.log(e)
+     }
+
+
+
+
+
+
+  }
 
 }
 
