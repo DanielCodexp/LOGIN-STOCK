@@ -18,14 +18,17 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ProductoSeleccionadoComponent implements  OnInit {
    id_equipo = <string>this.activeRoute.snapshot.params['id'];
    public src;
-   producto: Products=
-    {
+   public Qr= false;
+   public catalogo= false;
+   public correcto!: boolean;
+   public img;
+   producto: Products = {
   cCodPrd: '',
   cDesPrd: '',
   cPosPrd: '',
   cDesUM: '',
   };
-  report: Reports={
+  report: Reports = {
     cCodPrd: this.id_equipo,
     dtFecReg:new Date,
     cCvePer: this.authSvc.rsx.token,
@@ -33,17 +36,11 @@ export class ProductoSeleccionadoComponent implements  OnInit {
     nRevPrd: '1'
   };
 
-  public correcto!: boolean;
-
-  public img;
-
-
   constructor(
     private router:Router,
-    private ServicioProd: ProductsService,
     private activeRoute:ActivatedRoute,
     private stock: StockService,
-      private authSvc: AuthService,
+    private authSvc: AuthService,
   ){
 
   }
@@ -53,11 +50,15 @@ export class ProductoSeleccionadoComponent implements  OnInit {
     const id_entrada = <string>this.activeRoute.snapshot.params['id'];
     if(id_entrada){
       this.stock.getProductSelect(id_entrada).subscribe(
-        res=> this.producto = <any>res
+        res=>  {
+          this.producto = <any>res
+          this.Qr= true;
+        }
       )
       this.stock.getImageById(id_entrada).subscribe(
         img=> {
           this.img = <any> img
+          this.catalogo = true;
         }
       )
     }
@@ -77,8 +78,6 @@ export class ProductoSeleccionadoComponent implements  OnInit {
   this.stock.addReport(this.report).subscribe();
   this.router.navigate(['qr']);
 }
-
-
 
 
 }
